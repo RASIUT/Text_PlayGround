@@ -32,7 +32,7 @@ const TextForm = (props) => {
         <div className="container" style={props.bodyColor}>
             <div className="mb-3 ">
                 <h3>Enter text below for the operations to be done</h3>
-                <textarea className="form-control " id="exampleFormControlTextarea1" onChange={handleonChange} value={textval} placeholder="Enter text here" rows="8"></textarea>
+                <textarea style={props.TextFormColor} className="form-control " id="exampleFormControlTextarea1" onChange={handleonChange} value={textval} placeholder="Enter text here" rows="8"></textarea>
             </div>  
             <button type="button" className="m-3 btn btn-primary" onClick={handleUppercase}>UpperCase</button>
             <button type="button" className="m-3 btn btn-primary" onClick={handleLowercase}>LowerCase</button>
