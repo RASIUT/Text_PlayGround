@@ -6,8 +6,7 @@ import {useState, useEffect} from 'react';
 import {
   BrowserRouter as Router, 
   Route, 
-  Routes, 
-  Link, 
+  Routes
 } from "react-router-dom";
 
 const App = () => {
@@ -16,7 +15,6 @@ const App = () => {
 
   const[alert, setalert] = useState(null);
 
-  const[Timer, setTimer] = useState(0);
   const[IntervalId, setIntervalID] = useState(null);
 
   const showAlert = (message, type) => {
@@ -25,12 +23,8 @@ const App = () => {
       type: type
     })
     clearInterval(IntervalId);
-    setTimer(0);
     const newIntervalId = setInterval(() => {
       setalert(null);
-      setTimer((prevTimer) => {
-        return prevTimer+1;
-      })
     }, 1300);
     setIntervalID(newIntervalId);
   }
