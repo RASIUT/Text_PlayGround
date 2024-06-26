@@ -1,8 +1,14 @@
 import Navbar from "./Components/Navbar";
 import TextFrom from "./Components/TextForm";
 import Alert from "./Components/Alert";
+import About from "./Components/About";
 import {useState, useEffect} from 'react';
-
+import {
+  BrowserRouter as Router, 
+  Route, 
+  Routes, 
+  Link, 
+} from "react-router-dom";
 
 const App = () => {
 
@@ -78,6 +84,8 @@ const App = () => {
       
       showAlert("Dark mode has been enabled", "success");
 
+      document.title = "Text_PlayGround (Dark)";
+
     }else{        //-------------------------------------------Light Mode-----------------------------------------------
       setmode("Light Mode");
       document.body.style.backgroundColor='#FAEED1';
@@ -104,6 +112,8 @@ const App = () => {
       
       showAlert("Light mode has been enabled", "success");
 
+      document.title = "Text_PlayGround";
+
     }
   }
 
@@ -114,11 +124,14 @@ const App = () => {
  
 
   return(
-    <>
+    <Router>
       <Navbar mode={mode} toggleMode={toggleMode} navbarColor={navbarColor}/>
       <Alert alert={alert}/>
-      <TextFrom bodyColor={bodyColor} TextFormColor={TextFormColor} showAlert={showAlert}/>
-    </>
+      <Routes>
+        <Route exact path="/about" element={<About bodyColor={bodyColor} TextFormColor={TextFormColor} />} />
+        <Route exact path="/" element={<TextFrom bodyColor={bodyColor} TextFormColor={TextFormColor} showAlert={showAlert} />} />
+      </Routes>
+    </Router>
   );
 }
 export default App;
